@@ -2,25 +2,28 @@ using Pkg
 
 # environment
 Pkg.add("IJulia")
-Pkg.add("CUDA")#; using CUDA
+Pkg.add("CUDA")
 
 #ai/ml
-Pkg.add("Flux")#; using Flux
-Pkg.add("Images")#; using Images
-Pkg.add("MLJ")#; using MLJ
+Pkg.add("Flux")
+Pkg.add("Images")
+Pkg.add("MLJ")
 
 # math
-Pkg.add("LinearAlgebra")#; using LinearAlgebra
-Pkg.add("Metrics")#; using Metrics
-Pkg.add("Random")#; using Random
-Pkg.add("StatsBase")#; using StatsBase
-Pkg.add("Distributions")#; using Distributions
+Pkg.add("LinearAlgebra")
+Pkg.add("Metrics")
+Pkg.add("Random")
+Pkg.add("StatsBase")
+Pkg.add("Distributions")
 
 # charts
-Pkg.add("Plots")#; using Plots
+Pkg.add("Plots")
 Pkg.add("StatsPlots")
-Pkg.add("Printf")#; using Printf
+Pkg.add("Printf")
 
 # data
-Pkg.add("CSV")#; using CSV
-Pkg.add("DataFrames")#; using DataFrames
+Pkg.add("CSV")
+Pkg.add("DataFrames")
+
+#build
+Pkg.build()
