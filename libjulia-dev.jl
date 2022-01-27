@@ -4,6 +4,10 @@ using MLDataUtils
 
 
 
+RMSE(ŷ, y) = mean(abs.(ŷ - y))
+
+
+
 function categoryStratificationChart(trainY, testY)
     # check for unique labels
     l = label(trainY); sort!(l)
