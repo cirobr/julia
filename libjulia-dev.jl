@@ -88,3 +88,35 @@ function imageSet2matrix(imageSet)
     X = DataFrame(X, :auto) |> Matrix
     return X'
 end
+
+
+
+function shuffleRowMatrix(X, Y)
+    ndim = size(Y)[1]
+    ind = randperm(ndim)   # shuffle array indices
+    shuffledX = X[ind, :]
+    shuffledY = trainY[ind]
+    
+    return (shuffledX, shuffledY)
+end
+
+
+
+function rescaleByColumns(X)
+    # using StatsBase
+    X = Float64.(X)
+    dt = fit(ZScoreTransform, X; dims=1, center=true, scale=true)
+    rescaledX = StatsBase.transform(dt, X)
+end
+
+
+
+function rescaleByRows(X)
+    # using StatsBase
+    X = Float64.(X)
+    dt = fit(ZScoreTransform, X; dims=2, center=true, scale=true)
+    rescaledX = StatsBase.transform(dt, X)
+end
+
+
+
