@@ -105,7 +105,7 @@ end
 function rescaleByColumns(X)
     # using StatsBase
     X = Float64.(X)
-    dt = fit(ZScoreTransform, X; dims=1, center=true, scale=true)
+    dt = StatsBase.fit(ZScoreTransform, X; dims=1, center=true, scale=true)
     rescaledX = StatsBase.transform(dt, X)
 end
 
