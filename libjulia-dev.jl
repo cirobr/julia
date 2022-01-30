@@ -40,14 +40,14 @@ end
 
 
 
-function matrix2vector(M)
+function matrix2Vector(M)
     d = length(M)
     v = reshape(M, (d,))   # columns are organized left-to-right as single vector
 end
 
 
 
-function vectorVectors2matrix(M, tr=true)
+function vectorVectors2Matrix(M, tr=true)
     Mnew = DataFrame(M, :auto) |> Matrix
     if tr Mnew = Mnew' end
     
@@ -56,35 +56,35 @@ end
 
 
 
-function vectorVectors2df(M, tr=true)
+function vectorVectors2DF(M, tr=true)
     Mnew = DataFrame(M, :auto) |> Matrix
     Mnew = DataFrame(Mnew', :auto)
 end
 
 
 
-function imageSet2df(imageSet)
+function imageSet2DF(imageSet)
     # converts an image set (h x v x N) array on a DataFrame
     # each row of the dataframe corresponds to one vector image
 
     N = size(imageSet)[3]
     d = size(imageSet)[1] * size(imageSet)[2]
 
-    X = [ matrix2vector(imageSet[:, :, i]) for i in 1:N ]
+    X = [ matrix2Vector(imageSet[:, :, i]) for i in 1:N ]
     X = DataFrame(X, :auto) |> Matrix
     df = DataFrame(X', :auto)
 end
 
 
 
-function imageSet2matrix(imageSet)
+function imageSet2Matrix(imageSet)
     # converts an image set (h x v x N) array on a (vector x N) array
     # each row of the dataframe corresponds to one vector image
 
     N = size(imageSet)[3]
     d = size(imageSet)[1] * size(imageSet)[2]
 
-    X = [ matrix2vector(imageSet[:, :, i]) for i in 1:N ]
+    X = [ matrix2Vector(imageSet[:, :, i]) for i in 1:N ]
     X = DataFrame(X, :auto) |> Matrix
     return X'
 end
