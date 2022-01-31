@@ -4,7 +4,18 @@ using MLDataUtils
 
 
 
-RMSE(ŷ, y) = mean(abs.(ŷ - y))
+# precisamos desta ???
+function imageSet2Matrix(imageSet)
+    # converts an image set (h x v x N) array on a (vector x N) array
+    # each row of the matrix corresponds to one vector image
+
+    N = size(imageSet)[3]
+    d = size(imageSet)[1] * size(imageSet)[2]
+
+    X = [ matrix2Vector(imageSet[:, :, i]) for i in 1:N ]
+    X = DataFrame(X, :auto) |> Matrix
+    return X'
+end
 
 
 
@@ -40,54 +51,25 @@ end
 
 
 
-function matrix2Vector(M)
-    d = length(M)
-    v = reshape(M, (d,))   # columns are organized left-to-right as single vector
+function image2Vector(M) = vec(Float64.(M))
+
+# function matrix2Vector(M)
+#     d = length(M)
+#     v = reshape(M, (d,))   # columns are organized left-to-right as single vector
+# end
+
+
+
+function batchProcessImage2Vector(array3D, batchRange)
+    # array3D = (h, v, N)
+    # batchRange = a:b
+    # output: vectorOfImageVectors
+    vectorOfImageVectors = [ image2Vector( array3D[:, :, i] ) for i in batchRange]
 end
 
 
 
-function vectorVectors2Matrix(M, tr=true)
-    Mnew = DataFrame(M, :auto) |> Matrix
-    if tr Mnew = Mnew' end
-    
-    return Mnew
-end
-
-
-
-function vectorVectors2DF(M, tr=true)
-    Mnew = DataFrame(M, :auto) |> Matrix
-    Mnew = DataFrame(Mnew', :auto)
-end
-
-
-
-function imageSet2DF(imageSet)
-    # converts an image set (h x v x N) array on a DataFrame
-    # each row of the dataframe corresponds to one vector image
-
-    N = size(imageSet)[3]
-    d = size(imageSet)[1] * size(imageSet)[2]
-
-    X = [ matrix2Vector(imageSet[:, :, i]) for i in 1:N ]
-    X = DataFrame(X, :auto) |> Matrix
-    df = DataFrame(X', :auto)
-end
-
-
-
-function imageSet2Matrix(imageSet)
-    # converts an image set (h x v x N) array on a (vector x N) array
-    # each row of the dataframe corresponds to one vector image
-
-    N = size(imageSet)[3]
-    d = size(imageSet)[1] * size(imageSet)[2]
-
-    X = [ matrix2Vector(imageSet[:, :, i]) for i in 1:N ]
-    X = DataFrame(X, :auto) |> Matrix
-    return X'
-end
+vector2Image(vec, h, v) = reshape(Float64.(vec), (h, v))
 
 
 
@@ -114,7 +96,7 @@ end
 function rescaleByRows(X)
     # using StatsBase
     X = Float64.(X)
-    dt = fit(ZScoreTransform, X; dims=2, center=true, scale=true)
+    dt = StatsBase.fit(ZScoreTransform, X; dims=2, center=true, scale=true)
     rescaledX = StatsBase.transform(dt, X)
 end
 
