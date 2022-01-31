@@ -51,7 +51,7 @@ end
 
 
 
-function image2Vector(M) = vec(Float64.(M))
+image2Vector(M) = vec(Float64.(M))
 
 # function matrix2Vector(M)
 #     d = length(M)
@@ -60,11 +60,9 @@ function image2Vector(M) = vec(Float64.(M))
 
 
 
-function batchProcessImage2Vector(array3D, batchRange)
-    # array3D = (h, v, N)
-    # batchRange = a:b
-    # output: vectorOfImageVectors
-    vectorOfImageVectors = [ image2Vector( array3D[:, :, i] ) for i in batchRange]
+function batchImage2Vector(imagesArray3D)
+    h, v, N = size(imagesArray3D)
+    vectorOfImageVectors = [ image2Vector( imagesArray3D[:, :, i] ) for i in 1:N]
 end
 
 
