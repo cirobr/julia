@@ -8,6 +8,10 @@ Pkg.add("CUDA")
 Pkg.add("Flux")
 Pkg.add("Images")
 Pkg.add("MLJ")
+Pkg.add("MLDataUtils")
+Pkg.add("MLDatasets")
+Pkg.add("MLJLinearModels")
+Pkg.add("GLM")
 
 # math
 Pkg.add("LinearAlgebra")
