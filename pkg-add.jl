@@ -11,6 +11,7 @@ Pkg.add("MLJ")
 Pkg.add("MLDataUtils")
 Pkg.add("MLDatasets")
 Pkg.add("MLJLinearModels")
+Pkg.add("ScikitLearn")
 Pkg.add("GLM")
 
 # math
