@@ -5,13 +5,21 @@ using MLDataUtils
 
 
 
-function image2Vector(M) = vec(Float64.(M))
+image2Vector(M) = vec(Float64.(M))
 
 
 
 function batchImage2Vector(imagesArray3D)
     h, v, N = size(imagesArray3D)
     vectorOfImageVectors = [ image2Vector( imagesArray3D[:, :, i] ) for i in 1:N]
+end
+
+
+
+function batchImage2DF(imagesArray3D)
+    vectorOfImageVectors = batchImage2Vector(imagesArray3D)
+    M = reduce(hcat, vectorOfImageVectors)
+    DataFrame(M', :auto)
 end
 
 
