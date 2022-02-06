@@ -12,6 +12,7 @@ Pkg.add("MLJFlux")
 Pkg.add("MLDataUtils")
 Pkg.add("MLDatasets")
 Pkg.add("MLJLinearModels")
+Pkg.add("MultivariateStats")
 Pkg.add("ScikitLearn")
 Pkg.add("GLM")
 
