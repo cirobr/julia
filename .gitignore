@@ -15,3 +15,6 @@ CMakeLists.txt.user
 *.o
 *.out
 *.exe
+
+#julia
+*.jlso
