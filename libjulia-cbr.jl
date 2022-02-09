@@ -24,11 +24,17 @@ end
 
 
 
+# function batchImage2DF(imagesArray3D)
+#     vectorOfImageVectors = batchImage2Vector(imagesArray3D)
+#     M = reduce(hcat, vectorOfImageVectors)
+#     DataFrame(M', :auto)
+# end
+
 function batchImage2DF(imagesArray3D)
-    vectorOfImageVectors = batchImage2Vector(imagesArray3D)
-    M = reduce(hcat, vectorOfImageVectors)
-    DataFrame(M', :auto)
+    M = batchImage2Matrix(imagesArray3D)
+    DataFrame(M, :auto)
 end
+
 
 
 
