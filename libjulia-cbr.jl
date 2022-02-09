@@ -16,6 +16,14 @@ end
 
 
 
+function batchImage2Matrix(imagesArray3D)
+    vectorOfImageVectors = batchImage2Vector(imagesArray3D)
+    M = reduce(hcat, vectorOfImageVectors)
+    M'
+end
+
+
+
 function batchImage2DF(imagesArray3D)
     vectorOfImageVectors = batchImage2Vector(imagesArray3D)
     M = reduce(hcat, vectorOfImageVectors)
