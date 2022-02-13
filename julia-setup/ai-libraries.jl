@@ -1,4 +1,6 @@
 # libraries
+using CUDA
+
 using Flux              # the julia ml library
 using Images            # image processing and machine vision for julia
 
