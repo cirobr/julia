@@ -6,7 +6,7 @@ using Images            # image processing and machine vision for julia
 
 using MLJ               # make_blobs, rmse, confmat, f1score, coerce
 using MLJFlux           # NeuralNetworkClassifier, CUDALibs
-using MLDataUtils       # label, nlabel, labelfreq
+using MLDataUtils       # label, nlabel, labelfreq, stratifiedobs
 using MLDatasets        # mnist
 
 using LinearAlgebra     # pinv pseudo-inverse matrix
