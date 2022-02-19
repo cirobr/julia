@@ -5,10 +5,10 @@
 .Ruserdata
 
 # Python
-*ipynb_checkpoints
+.ipynb_checkpoints
 
 # qt-creator
-/build*
+*/build*
 CMakeLists.txt.user
 
 # C
@@ -18,3 +18,6 @@ CMakeLists.txt.user
 
 #julia
 *.jlso
+
+# vscode
+*/.vscode
