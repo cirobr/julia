@@ -30,6 +30,8 @@ Pkg.add("Printf")
 
 Pkg.add("Images")
 Pkg.add("ImageView")
+Pkg.add("VideoIO")
+Pkg.add("GLMakie")
 
 # data
 Pkg.add("CSV")
