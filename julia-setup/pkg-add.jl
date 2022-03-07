@@ -7,7 +7,6 @@ Pkg.add("CUDA")
 
 #ai/ml
 Pkg.add("Flux")
-Pkg.add("Images")
 Pkg.add("MLJ")
 Pkg.add("MLJFlux")
 Pkg.add("MLDataUtils")
@@ -24,10 +23,13 @@ Pkg.add("Random")
 Pkg.add("StatsBase")
 Pkg.add("Distributions")
 
-# charts
+# charts / images
 Pkg.add("Plots")
 Pkg.add("StatsPlots")
 Pkg.add("Printf")
+
+Pkg.add("Images")
+Pkg.add("ImageView")
 
 # data
 Pkg.add("CSV")
