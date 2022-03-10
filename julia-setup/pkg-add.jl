@@ -23,15 +23,17 @@ Pkg.add("Random")
 Pkg.add("StatsBase")
 Pkg.add("Distributions")
 
-# charts / images
+# charts
 Pkg.add("Plots")
 Pkg.add("StatsPlots")
 Pkg.add("Printf")
 
+# media
 Pkg.add("Images")
 Pkg.add("ImageView")
 Pkg.add("VideoIO")
 Pkg.add("GLMakie")
+Pkg.add("OpenCV")
 
 # data
 Pkg.add("CSV")

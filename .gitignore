@@ -21,3 +21,6 @@ CMakeLists.txt.user
 
 # vscode
 */.vscode
+
+# data
+bags
