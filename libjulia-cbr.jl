@@ -65,3 +65,11 @@ end
 
 
 
+function filesWithinFolder(folder, ext)
+    files = readdir(folder)
+    extFiles = [file for file in files if occursin( ext, file )]
+    extFiles = string.(folder, "/", extFiles)
+end
+
+
+
