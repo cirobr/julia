@@ -73,3 +73,9 @@ end
 
 
 
+function hex2RGB(img)
+    img2 = Float32.(img) ./ Float32(255.0)
+    img2 = RGB.(img2[:,:,1], img2[:,:,2], img2[:,:,3])
+end
+
+
