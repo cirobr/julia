@@ -81,3 +81,10 @@ function hex2RGB(img)
 end
 
 
+
+img_CHW(img) = Images.channelview(img)
+img_HWC(img) = Images.permutedims(img_CHW(img), (2, 3, 1))
+img_CWH(img) = Images.permutedims(img_CHW(img), (1, 3, 2))
+
+
+
