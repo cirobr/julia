@@ -31,6 +31,8 @@ Pkg.add("Printf")
 # media
 Pkg.add("Images")
 Pkg.add("ImageView")
+Pkg.add("ImageTransformations")
+
 Pkg.add("VideoIO")
 Pkg.add("GLMakie")
 Pkg.add("OpenCV")
@@ -38,6 +40,7 @@ Pkg.add("OpenCV")
 # data
 Pkg.add("CSV")
 Pkg.add("DataFrames")
+Pkg.add("FileIO")
 
 #build
 Pkg.build()
