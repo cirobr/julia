@@ -33,7 +33,6 @@ Pkg.add("Images")
 Pkg.add("ImageView")
 Pkg.add("ImageTransformations")
 
-Pkg.add("VideoIO")
 Pkg.add("GLMakie")
 Pkg.add("OpenCV")
 
@@ -41,6 +40,8 @@ Pkg.add("OpenCV")
 Pkg.add("CSV")
 Pkg.add("DataFrames")
 Pkg.add("FileIO")
+Pkg.add("ImageIO")
+Pkg.add("VideoIO")
 
 #build
 Pkg.build()
