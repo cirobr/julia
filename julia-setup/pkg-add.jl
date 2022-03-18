@@ -32,16 +32,15 @@ Pkg.add("Printf")
 Pkg.add("Images")
 Pkg.add("ImageView")
 Pkg.add("ImageTransformations")
-
-Pkg.add("GLMakie")
-Pkg.add("OpenCV")
+Pkg.add("ImageDraw")
+#Pkg.add("OpenCV")
 
 # data
 Pkg.add("CSV")
 Pkg.add("DataFrames")
 Pkg.add("FileIO")
 Pkg.add("ImageIO")
-Pkg.add("VideoIO")
+Pkg.add("VideoIO"); Pkg.add("GLMakie")
 
 #build
 Pkg.build()

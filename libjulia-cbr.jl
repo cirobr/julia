@@ -75,6 +75,12 @@ end
 
 
 
+img_CHW(img) = Images.channelview(img)
+img_HWC(img) = Images.permutedims(img_CHW(img), (2, 3, 1))
+img_CWH(img) = Images.permutedims(img_CHW(img), (1, 3, 2))
+
+
+
 function hex2RGB(img)
     img2 = Float32.(img) ./ Float32(255.0)
     img2 = RGB.(img2[:,:,1], img2[:,:,2], img2[:,:,3])
@@ -86,12 +92,6 @@ function hex2uint8(img)
     img2 = img_HWC(img)
     img2 = reinterpret(UInt8, img2) .|> UInt8    
 end
-
-
-
-img_CHW(img) = Images.channelview(img)
-img_HWC(img) = Images.permutedims(img_CHW(img), (2, 3, 1))
-img_CWH(img) = Images.permutedims(img_CHW(img), (1, 3, 2))
 
 
 
