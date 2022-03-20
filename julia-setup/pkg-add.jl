@@ -3,7 +3,6 @@ using Pkg
 # environment
 Pkg.add("IJulia")
 Pkg.add("PyCall")
-Pkg.add("CUDA")
 
 #ai/ml
 Pkg.add("Flux")
@@ -34,6 +33,11 @@ Pkg.add("ImageView")
 Pkg.add("ImageTransformations")
 Pkg.add("ImageDraw")
 #Pkg.add("OpenCV")
+
+# hpc
+Pkg.add("CUDA")
+Pkg.add("Distributed")
+Pkg.add("FLoops")
 
 # data
 Pkg.add("CSV")
