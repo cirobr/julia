@@ -42,9 +42,10 @@ Pkg.add("FLoops")
 # data
 Pkg.add("CSV")
 Pkg.add("DataFrames")
+Pkg.add("DataStructures")   # stacks, queues, ...
 Pkg.add("FileIO")
 Pkg.add("ImageIO")
-Pkg.add("VideoIO"); Pkg.add("GLMakie")
+#Pkg.add("VideoIO"); Pkg.add("GLMakie")
 
 #build
 Pkg.build()
