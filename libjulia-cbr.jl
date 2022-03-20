@@ -208,6 +208,15 @@ end
 
 
 
+function cv2ShowImage(imageFullPath, windowName)
+    img = cv2.imread(imageFullPath)
+    cv2.imshow(windowName, img)
+    cv2.waitKey(Int32(0))
+    cv2.destroyWindow(windowName)
+end
+
+
+
 function cv2PlayImageBuffer(imageBuffer, windowName, framesPerSecond)
     frameInterval_ms = trunc( Int16, Float32(1.0 / framesPerSecond * 1000.0) )
 
