@@ -3,6 +3,10 @@ using StatsBase
 using DataFrames
 using MLDataUtils
 
+using PyCall
+rs  = pyimport("pyrealsense2")
+cv2 = pyimport("cv2")            # video playback only
+
 
 
 image2Vector(M) = vec( Float32.(M) )   # 32-bits is faster on GPU
@@ -95,3 +99,121 @@ end
 
 
 
+# realsense functions
+function rsShowInfo(pipe)
+    activeProfile = pipe.get_active_profile()
+    println(activeProfile.get_device())
+    println(activeProfile.get_streams())
+    
+end
+
+function rsGetProfiles(pipe)
+    profiles = ["Color", "Infrared", "Depth"]
+
+    activeProfile = pipe.get_active_profile()
+    streams = activeProfile.get_streams()
+    
+    streamProfiles = []
+    for stream in streams
+        for profile in profiles
+            if occursin( profile, string(stream) )
+                push!(streamProfiles, profile)
+            end
+        end
+    end
+
+    return (streamProfiles)
+end
+
+function rsAlignFrames(profiles)
+    if "Color" in profiles
+        align = rs.align(rs.stream.color)      # alignment color & depth
+    elseif "Infrared" in profiles
+        align = rs.align(rs.stream.infrared)   # alignment infrared & depth
+    end
+    
+    return (align)
+end
+
+function rsDecodeFrames(frameset, profiles)
+    img  = Array{UInt8}[]
+    dpt  = Matrix{UInt16}[]
+    cdpt = Array{UInt8}[]
+    
+    for profile in profiles
+        if profile == "Color"
+            colorFrame = frameset.get_color_frame()
+            img = colorFrame.get_data() |> Array
+            
+        elseif profile == "Infrared"
+            grayFrame = frameset.get_infrared_frame()
+            img = grayFrame.get_data() |> Array
+            
+        elseif profile == "Depth"
+            depthFrame = frameset.get_depth_frame()
+            dpt = depthFrame.get_data() |> Array
+
+            colorizer = rs.colorizer()
+            cdpt = colorizer.colorize(depthFrame).get_data() |> Array
+
+        end
+    end
+
+    return (img, dpt, cdpt)
+end
+
+function rsProcessBagfile(file, imageBuffer, folderName, sleepTime_s, saveFrames=false)
+    # setup
+    pipe    = rs.pipeline()
+    cfg     = rs.config()
+    cfg.enable_device_from_file(file, repeat_playback=false)   # false prevents file replay
+    profile = pipe.start(cfg)
+        
+    # get stream types
+    streamProfiles = rsGetProfiles(pipe)
+
+    # setup file for streaming
+    playback = profile.get_device().as_playback()   # get playback device
+    playback.set_real_time(false)                   # disable real-time playback (reading from file)
+        
+    frameNumber = 0
+    playback.resume()   # ensures loop start
+    print("Processing file ", file, " ... ")
+                
+    while playback.current_status() == rs.playback_status.playing
+        # decode single frame
+        frameset       = pipe.wait_for_frames()                     # get frame
+        align          = rsAlignFrames(streamProfiles)              # align frame
+        frameset       = align.process(frameset)
+        img, dpt, cdpt = rsDecodeFrames(frameset, streamProfiles)   # decode frame
+            
+        # add frame to buffer
+        frameNumber += 1
+        push!(imageBuffer, img)
+
+        # save frame to png file
+        if saveFrames
+            fileName  = string.(folderName, "/", "img", frameNumber, ".png")
+            Images.save(fileName, img)
+        end
+    
+        # pause between frames
+        if sleepTime_s >= 0.001 sleep(sleepTime_s) end
+    end
+        
+    # cleanup
+    pipe.stop()
+    println(frameNumber, " frames processed")
+end
+
+
+
+function cv2PlayImageBuffer(imageBuffer, windowName, framesPerSecond)
+    frameInterval_ms = trunc( Int16, Float32(1.0 / framesPerSecond * 1000.0) )
+
+    for img in imageBuffer
+        cv2.imshow(windowName, img)
+        cv2.waitKey(frameInterval_ms)
+    end
+    cv2.destroyWindow(windowName);
+end
