@@ -1,8 +1,10 @@
 # https://github.com/JuliaFolds/FLoops.jl
+# $ julia --threads 4            (takes precedence)
+# $ export JULIA_NUM_THREADS=4
 
 using FLoops
 
-println("Available threads = ", Threads.nthreads() )
+println( "Available threads = ", Threads.nthreads() )
 N = 100
 a = zeros(N)
 
@@ -14,6 +16,6 @@ s = 0
     @reduce s += a[i]             # "s" is protected
 end
 
-#println(a')
+println(a')
 #println(s)
 println("Equal sum: ", s == sum(a))

@@ -17,7 +17,7 @@ X = Array{Any}(undef, d)
 Y = Array{Float32}(undef, d)
 
 for i in 1:d
-    X[i] = [rand(0:9) for i in 1:N]
+    X[i] = [ rand(0:9) for i in 1:N ]
 end
 
 # kernel of distributed function
