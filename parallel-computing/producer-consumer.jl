@@ -1,8 +1,8 @@
 using DataStructures
 
 function producer(N)
-    for i in 1:N
-        enqueue!(imageBuffer, i)
+    for frame in 1:N
+        enqueue!(imageBuffer, frame)
     end
 end
 
@@ -16,6 +16,7 @@ function consumer()
         println("data from buffer: ", frame)
         sleep(1/20)
     end
+    empty!(imageBuffer)
     println("end of buffer")
     return
 end
