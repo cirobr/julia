@@ -32,7 +32,7 @@ Pkg.add("Images")
 Pkg.add("ImageView")
 Pkg.add("ImageTransformations")
 Pkg.add("ImageDraw")
-#Pkg.add("OpenCV")
+Pkg.add("OpenCV")
 
 # hpc
 Pkg.add("CUDA")
