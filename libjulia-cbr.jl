@@ -61,7 +61,7 @@ end
 """
 vector2Image(vec, h, v)
 
-Converts a vector "vec" in a matrix of "h" lines by "v" columns.
+Converts a vector "vec" in a matrix of "h" rows by "v" columns.
 """
 vector2Image(vec, h, v) = reshape(Float32.(vec), (h, v))
 
@@ -81,6 +81,17 @@ function rgb2opencv(img)
     img2 = rgb2CWH(img)
     img2 = Float32.(img2)
     #img2 = cv.Mat(img2)
+end
+
+"""
+rs2opencv(img)
+
+Converts images from pyrealsense to OpenCV type of representation.
+"""
+function rs2opencv(img)
+    img2 = Float32.(img) ./ Float32(255.0)
+    img2 = Images.permutedims(img2, (3, 2, 1))
+    # img2 = Float32.(img2)
 end
 
 
