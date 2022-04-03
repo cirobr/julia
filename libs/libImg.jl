@@ -1,11 +1,5 @@
-# libraries
-using StatsBase
-using DataFrames
-using MLDataUtils
-using OpenCV; const cv = OpenCV
-
-using PyCall
-rs  = pyimport("pyrealsense2")
+# support library to ease image manipulation
+module libImg
 
 
 
@@ -91,7 +85,6 @@ Converts images from pyrealsense to OpenCV type of representation.
 function rs2opencv(img)
     img2 = Float32.(img) ./ Float32(255.0)
     img2 = Images.permutedims(img2, (3, 2, 1))
-    # img2 = Float32.(img2)
 end
 
 
@@ -152,52 +145,4 @@ end
 
 
 
-"""
-rescaleByColumns(X::Matrix)
-
-Centers and Rescales predictors from input matrix by columns.
-"""
-function rescaleByColumns(X::Matrix)
-    # using StatsBase
-    X = Float32.(X)
-    dt = StatsBase.fit(ZScoreTransform, X; dims=1, center=true, scale=true)
-    rescaledX = StatsBase.transform(dt, X)
 end
-
-
-
-"""
-rescaleByRows(X::Matrix)
-
-Centers and Rescales predictors from input matrix by rows.
-"""
-function rescaleByRows(X::Matrix)
-    # using StatsBase
-    X = Float32.(X)
-    dt = StatsBase.fit(ZScoreTransform, X; dims=2, center=true, scale=true)
-    rescaledX = StatsBase.transform(dt, X)
-end
-
-
-
-function shuffleRowMatrix(X, Y)
-    ndim = size(Y)[1]
-    ind = randperm(ndim)   # shuffle array indices
-    shuffledX = X[ind, :]
-    shuffledY = Y[ind]
-    
-    return (shuffledX, shuffledY)
-end
-
-
-
-function filesWithinFolder(folder, prefix, ext)
-    cutoffName = length(prefix) + 1
-    files = readdir(folder)
-    extFiles = [file for file in files if occursin( ext, file )]
-    sortedExtFiles = sort( [ parse(Int, file[cutoffName : end-4])  for file in extFiles ] )
-    sortedExtFiles = string.(folder, "/", prefix, sortedExtFiles, ext)
-end
-
-
-
