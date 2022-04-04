@@ -48,4 +48,5 @@ Pkg.add("ImageIO")
 #Pkg.add("VideoIO"); Pkg.add("GLMakie")
 
 #build
+Pkg.update()
 Pkg.build()

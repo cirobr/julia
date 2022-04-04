@@ -3,8 +3,9 @@ using Pkg
 using PkgTemplates
 
 # path
+libraryName = "PreprocessingArrays.jl"
+
 libPath = "/home/ciro/projects/libjulia"
-libraryName = "libImageArrays.jl"
 libString = string(libPath, "/", libraryName)
 
 # create package
