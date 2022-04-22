@@ -3,7 +3,7 @@ using Pkg
 using PkgTemplates
 
 # library name
-libName  = "PreprocessingArrays.jl"
+libName  = "AnaliseAlgoritmos.jl"
 fullpath = "~/projects/libjulia"
 lib      = libName[1:end-3]
 
