@@ -4,7 +4,7 @@ using PkgTemplates
 
 # library name
 libName  = "PreprocessingArrays.jl"
-fullpath = "~/.julia/dev"
+fullpath = "~/projects/libjulia"
 lib      = libName[1:end-3]
 
 # create package
