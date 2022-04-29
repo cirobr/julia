@@ -1,6 +1,7 @@
 # libraries
 using CUDA
 using Random
+CUDA.versioninfo()
 
 # allocate arrays on GPU
 N = 5000                                 # 5s on wsl
