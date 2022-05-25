@@ -12,7 +12,7 @@ c = Array{Float32}(undef, (N, N))
 end
 
 # cleanup memory
-global a = nothing
-global b = nothing
-global c = nothing
-GC.gc()
+# global a = nothing
+# global b = nothing
+# global c = nothing
+# GC.gc()
