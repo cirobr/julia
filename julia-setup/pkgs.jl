@@ -6,9 +6,9 @@ Pkg.add("IJulia")   # Jupyter i/f
 Pkg.add("PyCall")
 
 #ai/ml
-# Pkg.add("Flux")
+Pkg.add("Flux")
 Pkg.add("MLJ")
-# Pkg.add("MLJFlux")
+Pkg.add("MLJFlux")
 Pkg.add("MLDataUtils")
 Pkg.add("MLDatasets")
 Pkg.add("MLJLinearModels")
