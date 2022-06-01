@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../libjulia/PreprocessingImages.jl"
+		}
+	],
+	"settings": {}
+}
