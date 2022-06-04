@@ -1,4 +1,5 @@
 using Pkg
+Pkg.update()
 
 # environment
 Pkg.add("CUDA")
