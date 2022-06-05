@@ -1,5 +1,6 @@
 using Flux
 using MLJ
+using Plots
 
 function printMetrics(ŷ, y)
     display(MLJ.confmat(ŷ, y))
@@ -48,7 +49,7 @@ function stopTrainingCriteria(epochLosses::Vector{Float64}, deltaLosses::Vector{
     end
 
     # loss derivative growing: stop
-    if epoch > 2
+    if epoch > 3
         if issorted(deltaLosses[end-2 : end])   return(true)   end
     end
 
