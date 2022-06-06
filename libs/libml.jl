@@ -14,7 +14,7 @@ function trainModel!(loss, ps, data, opt)
         
     for d in data
         l = loss(d...)
-        gs = gradient(ps) do
+        gs = Flux.gradient(ps) do
             loss(d...)
         end
         Flux.update!(opt, ps, gs)
@@ -26,30 +26,32 @@ function trainModel!(loss, ps, data, opt)
 end
 
 function plotTrainingEvolution(epochLosses::Vector{Float64}, deltaLosses::Vector{Float64})
-    epochs = size(epochLosses)[1]
+    numberOfEpochs = size(epochLosses)[1]
 
-    if epochs > 2
-        p1 = plot(1:epochs, epochLosses, size=(400,300), linewidth=2, legend=false, yaxis=:log,
+    if numberOfEpochs > 2
+        p1 = Plots.plot(1:numberOfEpochs, epochLosses, size=(400,300), linewidth=2, legend=false, yaxis=:log,
                   title="Loss function")
-        p2 = plot(2:epochs, deltaLosses, size=(400,300), linewidth=2, legend=false, yaxis=:log,
+        p2 = Plots.plot(2:numberOfEpochs, deltaLosses, size=(400,300), linewidth=2, legend=false, yaxis=:log,
                   title="Loss function derivative")
-        p  = plot(p1, p2, layout = (1, 2), size=(900,300), legend=false); display(p)
+        p  = Plots.plot(p1, p2, layout = (1, 2), size=(900,300), legend=false)
+        display(p)   # explicit "display", as variable "p" is local for the "if" statement
     end
 end
 
 function stopTrainingCriteria(epochLosses::Vector{Float64}, deltaLosses::Vector{Float64}, minDeltaLoss::Float64)
-    epoch = size(epochLosses)[1]
+    numberOfEpochs = size(epochLosses)[1]
+    numberOfLosses = numberOfEpochs - 1
 
     # too few epochs: continue
-    if epoch == 1   return(false)   end
+    if numberOfEpochs == 1   return(false)   end
 
     # loss derivative reaching minimum: stop
-    if epoch > 1
+    if numberOfEpochs > 1
         if deltaLosses[end] < minDeltaLoss   return(true)   end
     end
 
     # loss derivative growing: stop
-    if epoch > 3
+    if numberOfLosses >= 3
         if issorted(deltaLosses[end-2 : end])   return(true)   end
     end
 
