@@ -9,16 +9,18 @@ end
 function consumer()
     while true
         while isempty(imageBuffer)
+            # println("buffer empty")
             continue
         end
 
         while !isempty(imageBuffer)
             frame = dequeue!(imageBuffer)
-            println("out of buffer ...", frame)
+            println("read from buffer ...", frame)
             sleep(1/20)
         end
         #empty!(imageBuffer)
         println("end of buffer")
+        break
     end
 end
 
@@ -27,5 +29,5 @@ global imageBuffer = Queue{Int}()
 # producer(100)
 # consumer()
 
-task1 = Threads.@spawn consumer()
-task2 = Threads.@spawn producer(100)
+task_c = Threads.@spawn consumer()
+task_p = Threads.@spawn producer(100)
