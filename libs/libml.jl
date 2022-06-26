@@ -28,7 +28,9 @@ end
 function plotTrainingEvolution(epochLosses::Vector{Float64}, deltaLosses::Vector{Float64})
     numberOfEpochs = size(epochLosses)[1]
 
-    if numberOfEpochs > 2
+    if numberOfEpochs <= 2
+        println("Insufficient epochs")
+    else
         p1 = Plots.plot(1:numberOfEpochs, epochLosses, size=(400,300), linewidth=2, legend=false, yaxis=:log,
                   title="Loss function")
         p2 = Plots.plot(2:numberOfEpochs, deltaLosses, size=(400,300), linewidth=2, legend=false, yaxis=:log,
