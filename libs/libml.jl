@@ -40,21 +40,16 @@ function plotTrainingEvolution(epochLosses::Vector{Float64}, deltaLosses::Vector
     end
 end
 
-function stopTrainingCriteria(epochLosses::Vector{Float64}, deltaLosses::Vector{Float64}, minDeltaLoss::Float64)
-    numberOfEpochs = size(epochLosses)[1]
-    numberOfLosses = numberOfEpochs - 1
+function stopTrainingCriteria(lossVector::Vector{Float64}, minLoss::Float64)
+    numberOfEpochs = size(lossVector)[1]
 
-    # too few epochs: continue
-    if numberOfEpochs == 1   return(false)   end
+    # loss function below tolerance: stop
+    if lossVector[end] <= minLoss   return(true)   end
 
-    # loss derivative reaching minimum: stop
-    if numberOfEpochs > 1
-        if deltaLosses[end] < minDeltaLoss   return(true)   end
-    end
-
-    # loss derivative growing: stop
-    if numberOfLosses >= 3
-        if issorted(deltaLosses[end-2 : end])   return(true)   end
+    # loss function growing: stop
+    if numberOfEpochs >= 3
+        v = lossVector[end-2 : end]
+        if issorted(v)   return(true)   end
     end
 
     return(false)
