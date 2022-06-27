@@ -28,7 +28,7 @@ end
 function stopTrainingCriteria(lossVector::Vector{Float64}, minLoss::Float64, nearZero::Float64)
     numberOfEpochs = size(lossVector)[1]
 
-    # loss function below tolerance: stop
+    # loss function below minimum: stop
     if lossVector[end] <= minLoss
         println("loss function below minimum")
         return(true)
