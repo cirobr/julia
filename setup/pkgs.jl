@@ -51,8 +51,8 @@ Pkg.add("FileIO")
 Pkg.add("ImageIO")
 
 # home made
-# Pkg.add("/home/ciro/projects/libjulia/PreprocessingArrays.jl")
-# Pkg.add("/home/ciro/projects/libjulia/PreprocessingImages.jl")
+# Pkg.add( expanduser("~/projects/libs/PreprocessingArrays.jl" )
+# Pkg.add( expanduser("~/projects/libs/PreprocessingImages.jl" )
 
 #build
 Pkg.update()
