@@ -7,27 +7,29 @@ function producer(N)
 end
 
 function consumer()
-    while true
-        while isempty(imageBuffer)
-            # println("buffer empty")
-            continue
-        end
+    breakloop = false
+    while !breakloop
+        while isempty(imageBuffer)   continue   end
 
         while !isempty(imageBuffer)
             frame = dequeue!(imageBuffer)
             println("read from buffer ...", frame)
+
+            if frame == -1   breakloop = true   end
             sleep(1/20)
         end
-        #empty!(imageBuffer)
         println("end of buffer")
-        break
     end
 end
 
+function kill_thread()
+    enqueue!(imageBuffer, -1)
+end
+
+Threads.nthreads()
+
 global imageBuffer = Queue{Int}()
-
-# producer(100)
-# consumer()
-
 task_c = Threads.@spawn consumer()
-task_p = Threads.@spawn producer(100)
+task_p = Threads.@spawn producer(10)
+
+kill_thread()
