@@ -50,10 +50,6 @@ Pkg.add("DataStructures")   # stacks, queues, ...
 Pkg.add("FileIO")
 Pkg.add("ImageIO")
 
-# home made
-# Pkg.add( expanduser("~/projects/libs/PreprocessingArrays.jl" )
-# Pkg.add( expanduser("~/projects/libs/PreprocessingImages.jl" )
-
 #build
 Pkg.update()
 Pkg.build()
