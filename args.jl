@@ -1,0 +1,2 @@
+display(Core.ARGS)
+println()
