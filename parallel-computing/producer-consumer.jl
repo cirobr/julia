@@ -1,7 +1,7 @@
 using DataStructures
 
 function producer(N)
-    Threads.@spawn for frame in 1:N
+    for frame in 1:N
         enqueue!(imageBuffer, frame)
     end
 end
@@ -10,7 +10,9 @@ function consumer()
     global keepchecking = true
 
     while keepchecking
-        while isempty(imageBuffer)   sleep(0.001)   end   # sleep reduces overhead for monitoring
+        while isempty(imageBuffer) & keepchecking
+            sleep(0.001)   # sleep reduces monitoring overhead
+        end
 
         while !isempty(imageBuffer)
             frame = dequeue!(imageBuffer)
@@ -32,6 +34,6 @@ global imageBuffer = Queue{Int}()
 task_c = Threads.@spawn consumer()
 task_p = Threads.@spawn producer(10)
 
-# kill_consumer()
+kill_consumer()
 
-display( (istaskstarted(task_c), istaskfailed(task_c), istaskdone(task_c)) )
+# display( (istaskstarted(task_c), istaskfailed(task_c), istaskdone(task_c)) )
