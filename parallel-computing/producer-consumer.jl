@@ -1,31 +1,29 @@
 using DataStructures
 
 function producer(N)
-    for frame in 1:N
+    Threads.@spawn for frame in 1:N
         enqueue!(imageBuffer, frame)
     end
 end
 
 function consumer()
-    breakloop = false
+    global keepchecking = true
 
-    while !breakloop
-        while isempty(imageBuffer)   continue   end
+    while keepchecking
+        while isempty(imageBuffer)   sleep(0.001)   end   # sleep reduces overhead for monitoring
 
         while !isempty(imageBuffer)
             frame = dequeue!(imageBuffer)
             println("read from buffer ...", frame)
-
-            if frame == -1   breakloop = true   end
-            sleep(1/20)
+            sleep(1/15)
         end
         println("end of buffer")
     end
     println("end of loop")
 end
 
-function kill_thread()
-    enqueue!(imageBuffer, -1)
+function kill_consumer()
+    global keepchecking = false
 end
 
 Threads.nthreads()
@@ -34,4 +32,6 @@ global imageBuffer = Queue{Int}()
 task_c = Threads.@spawn consumer()
 task_p = Threads.@spawn producer(10)
 
-kill_thread()
+# kill_consumer()
+
+display( (istaskstarted(task_c), istaskfailed(task_c), istaskdone(task_c)) )
