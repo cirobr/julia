@@ -8,6 +8,7 @@ end
 
 function consumer()
     breakloop = false
+
     while !breakloop
         while isempty(imageBuffer)   continue   end
 
@@ -20,6 +21,7 @@ function consumer()
         end
         println("end of buffer")
     end
+    println("end of loop")
 end
 
 function kill_thread()
