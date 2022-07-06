@@ -1,7 +1,7 @@
 using DataStructures
 
 function producer(N)
-    Threads.@spawn for frame in 1:N   # gravou em ordem com @spawn
+    for frame in 1:N
         enqueue!(imageBuffer, frame)
     end
 end

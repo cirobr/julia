@@ -24,5 +24,5 @@ Threads.@threads for i = 1:size(a)[1]   # each loop is a different thread
 end
 
 println(a')
-#println(s)
+# println(s)
 println("Equal sum: ", s == sum(a))
