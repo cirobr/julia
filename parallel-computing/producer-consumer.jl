@@ -1,7 +1,7 @@
 using DataStructures
 
 function producer(N)
-    for frame in 1:N
+    Threads.@spawn for frame in 1:N   # gravou em ordem com @spawn
         enqueue!(imageBuffer, frame)
     end
 end
@@ -34,6 +34,6 @@ global imageBuffer = Queue{Int}()
 task_c = Threads.@spawn consumer()
 task_p = Threads.@spawn producer(10)
 
-kill_consumer()
+# kill_consumer()
 
 # display( (istaskstarted(task_c), istaskfailed(task_c), istaskdone(task_c)) )

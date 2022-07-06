@@ -1,2 +1,3 @@
 # em .bashrc
 export JULIA_NUM_THREADS=4
+export JULIA_NUM_THREADS=12
