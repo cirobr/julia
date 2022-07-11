@@ -35,6 +35,7 @@ Pkg.add("StatsPlots")
 Pkg.add("Printf")
 
 # media
+Pkg.add("Colors")
 Pkg.add("Images")
 Pkg.add("ImageView")
 Pkg.add("ImageTransformations")
