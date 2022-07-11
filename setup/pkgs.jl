@@ -1,3 +1,5 @@
+# https://en.wikipedia.org/wiki/Xvfb
+
 using Pkg
 Pkg.update()
 
@@ -18,7 +20,7 @@ Pkg.add("MLJMultivariateStatsInterface")
 Pkg.add("ScikitLearn")
 Pkg.add("MLJScikitLearnInterface")
 Pkg.add("GLM")
-Pkg.add("ObjectDetector")   # yolo
+# Pkg.add("ObjectDetector")   # yolo
 
 # math
 Pkg.add("LinearAlgebra")
