@@ -1,5 +1,3 @@
-# https://en.wikipedia.org/wiki/Xvfb
-
 using Pkg
 Pkg.update()
 
