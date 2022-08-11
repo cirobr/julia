@@ -1,0 +1,22 @@
+### at the mother folder:
+# julia
+using Pkg
+Pkg.generate("myapp")
+# on /src edit "myapp.jl" adding the following structure:
+function julia_main()::Cint
+    # do something based on ARGS?
+    # then your code
+    return 0 # if things finished successfully
+end
+
+
+### at the myapp folder:
+# julia --project
+]         # pkg mode
+add ...   # add all packages
+
+
+### back to the mother folder:
+# julia
+using PackageCompiler
+create_app("MyApp", "MyAppCompiled")
