@@ -3,7 +3,7 @@ Pkg.update()
 
 # environment
 Pkg.add("CUDA")
-Pkg.add("IJulia")   # Jupyter i/f
+Pkg.add("IJulia")                           # Jupyter i/f
 Pkg.add("PyCall")
 
 #ai/ml
@@ -11,14 +11,14 @@ Pkg.add("Flux")
 Pkg.add("MLJ")
 Pkg.add("MLJFlux")
 Pkg.add("MLDataUtils")
-Pkg.add("MLDatasets")
+Pkg.add("MLDatasets")                       # mnist
 Pkg.add("MLJLinearModels")
 Pkg.add("MultivariateStats")
 Pkg.add("MLJMultivariateStatsInterface")
 Pkg.add("ScikitLearn")
 Pkg.add("MLJScikitLearnInterface")
 Pkg.add("GLM")
-# Pkg.add("ObjectDetector")   # yolo
+# Pkg.add("ObjectDetector")                  # yolo
 
 # math
 Pkg.add("LinearAlgebra")
@@ -49,7 +49,7 @@ Pkg.add("FLoops")
 # data
 Pkg.add("CSV")
 Pkg.add("DataFrames")
-Pkg.add("DataStructures")   # stacks, queues, ...
+Pkg.add("DataStructures")                   # stacks, queues, ...
 Pkg.add("FileIO")
 Pkg.add("ImageIO")
 
