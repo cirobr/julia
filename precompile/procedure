@@ -12,8 +12,8 @@ end
 
 ### at the myapp folder:
 # julia --project
-]         # pkg mode
-add ...   # add all packages
+          # pkg mode
+          # add all packages
 
 
 ### back to the mother folder:
