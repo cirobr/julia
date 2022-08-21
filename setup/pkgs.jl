@@ -53,6 +53,9 @@ Pkg.add("DataStructures")                   # stacks, queues, ...
 Pkg.add("FileIO")
 Pkg.add("ImageIO")
 
+# tools
+Pkg.add("BenchmarkTools")
+
 #build
 Pkg.update()
 Pkg.build()
