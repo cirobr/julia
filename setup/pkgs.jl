@@ -52,6 +52,7 @@ Pkg.add("DataFrames")
 Pkg.add("DataStructures")                   # stacks, queues, ...
 Pkg.add("FileIO")
 Pkg.add("ImageIO")
+Pkg.add("ArgParse")
 
 # tools
 Pkg.add("BenchmarkTools")
