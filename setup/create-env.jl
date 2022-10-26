@@ -20,4 +20,4 @@ Pkg.activate(lib)
 Pkg.add("Flux") 
 Pkg.add("CUDA") 
 
-mv(libName, libName * ".jl")
+mv(lib, lib * ".jl")
