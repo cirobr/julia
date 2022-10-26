@@ -9,3 +9,4 @@ arrayOfThreads = Vector{Param}(undef, n_threads)
 arrayOfThreads[1] = Param( rand(1:10), rand() )
 arrayOfThreads
 arrayOfThreads[1].pipe = 45
+arrayOfThreads
