@@ -2,7 +2,6 @@ using Pkg
 Pkg.update()
 
 # environment
-Pkg.add("CUDA")
 Pkg.add("IJulia")                           # Jupyter i/f
 Pkg.add("PyCall")
 
@@ -56,6 +55,7 @@ Pkg.add("ArgParse")
 
 # tools
 Pkg.add("BenchmarkTools")
+Pkg.add("CUDA")
 
 #build
 Pkg.update()
