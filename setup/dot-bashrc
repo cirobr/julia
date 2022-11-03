@@ -1,4 +1,5 @@
 # julia
-# export DISPLAY=:1             # apenas servidores
+# export DISPLAY=:1                  # apenas servidores
 # export JULIA_NUM_THREADS=4
 export JULIA_NUM_THREADS=12
+export JULIA_CUDA_MEMORY_POOL=none   # https://cuda.juliagpu.org/stable/usage/memory/#Garbage-collection
