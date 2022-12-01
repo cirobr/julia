@@ -5,6 +5,11 @@ Pkg.update()
 Pkg.add("IJulia")                           # Jupyter i/f
 Pkg.add("PyCall")
 
+# private packages
+# https://github.com/GunnarFarneback/LocalRegistry.jl/blob/master/docs/ssh_keys.md
+Pkg.add("git@github.com:cirobr/PreprocessingImages.jl.git")
+Pkg.add("git@github.com:cirobr/UNetFlux.jl.git")
+
 #ai/ml
 Pkg.add("Flux")
 Pkg.add("MLJ")
@@ -14,7 +19,7 @@ Pkg.add("MLDatasets")                       # mnist
 Pkg.add("MLJLinearModels")
 Pkg.add("MultivariateStats")
 Pkg.add("MLJMultivariateStatsInterface")
-Pkg.add("ScikitLearn")
+# Pkg.add("ScikitLearn")
 Pkg.add("MLJScikitLearnInterface")
 Pkg.add("GLM")
 # Pkg.add("ObjectDetector")                  # yolo
