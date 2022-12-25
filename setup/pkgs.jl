@@ -7,6 +7,7 @@ Pkg.add("PyCall")
 
 # private packages
 # https://github.com/GunnarFarneback/LocalRegistry.jl/blob/master/docs/ssh_keys.md
+# Pkg.add("LocalRegistry")                    # i/f for packages hosted on GitHub
 Pkg.add(url="git@github.com:cirobr/PreprocessingImages.jl.git")
 Pkg.add(url="git@github.com:cirobr/UNetFlux.jl.git")
 
