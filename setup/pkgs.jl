@@ -58,6 +58,7 @@ Pkg.add("DataStructures")                   # stacks, queues, ...
 Pkg.add("FileIO")
 Pkg.add("ImageIO")
 Pkg.add("ArgParse")
+Pkg.add("BSON")
 
 # tools
 Pkg.add("BenchmarkTools")
