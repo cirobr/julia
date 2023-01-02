@@ -3,6 +3,7 @@ Pkg.update()
 
 # environment
 Pkg.add("IJulia")                           # Jupyter i/f
+Pkg.add("PkgTemplates")
 Pkg.add("PyCall")
 
 # private packages
