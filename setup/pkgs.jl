@@ -47,6 +47,7 @@ Pkg.add("ImageDraw")
 # Pkg.add("OpenCV")
 # Pkg.add("GLMakie")
 Pkg.add("VideoIO")
+Pkg.add("PerceptualColourMaps")
 
 # hpc
 Pkg.add("Distributed")
@@ -60,6 +61,7 @@ Pkg.add("FileIO")
 Pkg.add("ImageIO")
 Pkg.add("ArgParse")
 Pkg.add("BSON")
+Pkg.add("JLD")
 
 # tools
 Pkg.add("BenchmarkTools")
