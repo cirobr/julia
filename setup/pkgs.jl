@@ -3,13 +3,14 @@ Pkg.update()
 
 # environment
 Pkg.add("IJulia")                           # Jupyter i/f
+Pkg.add("PkgTemplates")
 Pkg.add("PyCall")
 
 # private packages
 # https://github.com/GunnarFarneback/LocalRegistry.jl/blob/master/docs/ssh_keys.md
 # Pkg.add("LocalRegistry")                    # i/f for packages hosted on GitHub
 Pkg.add(url="git@github.com:cirobr/PreprocessingImages.jl.git")
-Pkg.add(url="git@github.com:cirobr/UNetFlux.jl.git")
+Pkg.add(url="git@github.com:cirobr/UNetFlux.jl.git#4levels")
 
 #ai/ml
 Pkg.add("Flux")
@@ -40,12 +41,13 @@ Pkg.add("Printf")
 # media
 Pkg.add("Colors")
 Pkg.add("Images")
-Pkg.add("ImageView")
+# Pkg.add("ImageView")
 Pkg.add("ImageTransformations")
 Pkg.add("ImageDraw")
 # Pkg.add("OpenCV")
 # Pkg.add("GLMakie")
 Pkg.add("VideoIO")
+Pkg.add("PerceptualColourMaps")
 
 # hpc
 Pkg.add("Distributed")
@@ -59,6 +61,7 @@ Pkg.add("FileIO")
 Pkg.add("ImageIO")
 Pkg.add("ArgParse")
 Pkg.add("BSON")
+Pkg.add("JLD")
 
 # tools
 Pkg.add("BenchmarkTools")
