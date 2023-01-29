@@ -7,4 +7,6 @@ export JULIA_NUM_THREADS=12
 export JULIA_PKG_USE_CLI_GIT=true
 
 # https://cuda.juliagpu.org/stable/usage/memory/#Garbage-collection
-# export JULIA_CUDA_MEMORY_POOL=none
+export JULIA_CUDA_MEMORY_POOL=none
+
+# export CUDA_VISIBLE_DEVICES='1'
