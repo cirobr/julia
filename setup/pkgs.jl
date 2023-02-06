@@ -10,7 +10,7 @@ Pkg.add("PyCall")
 # https://github.com/GunnarFarneback/LocalRegistry.jl/blob/master/docs/ssh_keys.md
 # Pkg.add("LocalRegistry")                    # i/f for packages hosted on GitHub
 Pkg.add(url="git@github.com:cirobr/PreprocessingImages.jl.git")
-Pkg.add(url="git@github.com:cirobr/UNetFlux.jl.git#4levels")
+Pkg.add(url="git@github.com:cirobr/UNetFlux.jl.git")
 
 #ai/ml
 Pkg.add("Flux")
@@ -47,7 +47,7 @@ Pkg.add("ImageDraw")
 # Pkg.add("OpenCV")
 # Pkg.add("GLMakie")
 Pkg.add("VideoIO")
-Pkg.add("PerceptualColourMaps")
+# Pkg.add("PerceptualColourMaps")
 
 # hpc
 Pkg.add("Distributed")
