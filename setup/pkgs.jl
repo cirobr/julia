@@ -14,7 +14,7 @@ Pkg.add(url="git@github.com:cirobr/UNetFlux.jl.git")
 Pkg.add("Flux")
 Pkg.add("MLJ")
 Pkg.add("MLJFlux")
-Pkg.add("MLDataUtils")
+Pkg.add("MLUtils")
 Pkg.add("MLDatasets")                       # mnist
 Pkg.add("MLJLinearModels")
 Pkg.add("MultivariateStats")
