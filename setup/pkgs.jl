@@ -45,7 +45,7 @@ Pkg.add("ImageDraw")
 # Pkg.add("OpenCV")
 # Pkg.add("GLMakie")
 Pkg.add("VideoIO")
-# Pkg.add("PerceptualColourMaps")
+Pkg.add("PerceptualColourMaps")
 
 # hpc
 Pkg.add("Distributed")
