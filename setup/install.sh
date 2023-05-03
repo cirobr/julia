@@ -1,5 +1,7 @@
-# https://julialang.org/downloads/platform/
 #!/bin/bash
+snap install julia --classic
 
-pip install jill -U
-jill install 1.8.5
+
+# https://julialang.org/downloads/platform/
+#pip install jill -U
+#jill install 1.8.5
