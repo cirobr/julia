@@ -1,7 +1,13 @@
 using Pkg
 Pkg.update()
 
-# environment
+# create environment
+foldername = expanduser("~/env-dev/")
+mkdir(foldername)
+cd(foldername)
+Pkg.activate(".")
+
+# add packages
 Pkg.add("IJulia")                           # Jupyter i/f
 Pkg.add("PkgTemplates")
 
@@ -15,14 +21,14 @@ Pkg.add("Flux")
 Pkg.add("MLJ")
 Pkg.add("MLJFlux")
 Pkg.add("MLUtils")
-Pkg.add("MLDatasets")                       # mnist
+Pkg.add("MLDatasets")   # mnist
 Pkg.add("MLJLinearModels")
 Pkg.add("MultivariateStats")
 Pkg.add("MLJMultivariateStatsInterface")
 # Pkg.add("ScikitLearn")
 Pkg.add("MLJScikitLearnInterface")
 Pkg.add("GLM")
-# Pkg.add("ObjectDetector")                  # yolo
+# Pkg.add("ObjectDetector")   # yolo
 
 # math
 Pkg.add("LinearAlgebra")
@@ -45,7 +51,7 @@ Pkg.add("ImageDraw")
 # Pkg.add("OpenCV")
 # Pkg.add("GLMakie")
 Pkg.add("VideoIO")
-Pkg.add("PerceptualColourMaps")
+# Pkg.add("PerceptualColourMaps")   # depends on python matplotlib
 
 # hpc
 Pkg.add("Distributed")
@@ -54,7 +60,7 @@ Pkg.add("FLoops")
 # data
 Pkg.add("CSV")
 Pkg.add("DataFrames")
-Pkg.add("DataStructures")                   # stacks, queues, ...
+Pkg.add("DataStructures")   # stacks, queues, ...
 Pkg.add("FileIO")
 Pkg.add("ImageIO")
 Pkg.add("ArgParse")
@@ -64,7 +70,8 @@ Pkg.add("JLD")
 # tools
 Pkg.add("PyCall")
 Pkg.add("BenchmarkTools")
-Pkg.add("CUDA"); using CUDA; CUDA.versioninfo()
+Pkg.add("CUDA")
+using CUDA; CUDA.versioninfo()   # skip if no gpu
 
 #build
 Pkg.update()
