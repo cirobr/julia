@@ -1,4 +1,4 @@
-# julia
+### julia
 # export DISPLAY=:1                   # apenas servidores
 export JULIA_NUM_THREADS=12           # export JULIA_NUM_THREADS=4
 export JULIA_PKG_USE_CLI_GIT=true     # https://github.com/GunnarFarneback/LocalRegistry.jl/blob/master/docs/ssh_keys.md
