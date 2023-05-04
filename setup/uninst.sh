@@ -1,5 +1,5 @@
 #!/bin/bash
-clear
-rm ~/.local/bin/julia*
+sudo snap remove julia
 rm -rf ~/.julia
-rm -rf ~/packages/julias
+# rm ~/.local/bin/julia*
+# rm -rf ~/packages/julias

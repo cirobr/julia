@@ -1,5 +1,5 @@
 #!/bin/bash
-snap install julia --classic
+sudo snap install julia --classic
 
 
 # https://julialang.org/downloads/platform/
