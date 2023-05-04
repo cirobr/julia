@@ -2,10 +2,10 @@ using Pkg
 Pkg.update()
 
 # create environment
-foldername = expanduser("~/dev-env/")
-mkdir(foldername)
-cd(foldername)
-Pkg.activate(".")
+# foldername = expanduser("~/dev-env/")
+# mkdir(foldername)
+# cd(foldername)
+# Pkg.activate(".")
 
 # add packages
 Pkg.add("IJulia")                           # Jupyter i/f
