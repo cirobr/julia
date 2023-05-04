@@ -70,8 +70,11 @@ Pkg.add("JLD")
 # tools
 Pkg.add("PyCall")
 Pkg.add("BenchmarkTools")
+
+# cuda
 Pkg.add("CUDA")
-using CUDA; CUDA.versioninfo()   # skip if no gpu
+using CUDA
+if CUDA.has_cuda_gpu()   CUDA.versioninfo()   end
 
 #build
 Pkg.update()
