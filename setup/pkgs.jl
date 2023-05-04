@@ -2,7 +2,7 @@ using Pkg
 Pkg.update()
 
 # create environment
-foldername = expanduser("~/dev-jl/")
+foldername = expanduser("~/dev-env/")
 mkdir(foldername)
 cd(foldername)
 Pkg.activate(".")
