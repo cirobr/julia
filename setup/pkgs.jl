@@ -3,7 +3,7 @@ Pkg.update()
 
 # create environment
 foldername = expanduser("~/dev-env/")
-mkdir(foldername)
+# mkdir(foldername)
 cd(foldername)
 Pkg.activate(".")
 
@@ -13,8 +13,8 @@ Pkg.add("PkgTemplates")
 
 # private packages
 # https://github.com/GunnarFarneback/LocalRegistry.jl/blob/master/docs/ssh_keys.md
-Pkg.add(url="git@github.com:cirobr/PreprocessingImages.jl.git")
-Pkg.add(url="git@github.com:cirobr/UNetFlux.jl.git")
+# Pkg.add(url="git@github.com:cirobr/PreprocessingImages.jl.git")
+# Pkg.add(url="git@github.com:cirobr/UNetFlux.jl.git")
 
 #ai/ml
 Pkg.add("Flux")
