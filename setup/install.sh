@@ -3,4 +3,4 @@
 pip install jill -U
 jill install 1.8.5
 
-# sudo snap install julia --classic
+# sudo snap install julia --classic   # not suitable for VSCode
