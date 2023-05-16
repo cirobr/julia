@@ -7,9 +7,8 @@ Pkg.update()
 # cd(foldername)
 # Pkg.activate(".")
 
-# add packages
-Pkg.add("IJulia")                           # Jupyter i/f
-Pkg.add("PkgTemplates")
+# jupyter interface
+Pkg.add("IJulia")
 
 # private packages
 # https://github.com/GunnarFarneback/LocalRegistry.jl/blob/master/docs/ssh_keys.md
@@ -25,9 +24,9 @@ Pkg.add("MLDatasets")   # mnist
 Pkg.add("MLJLinearModels")
 Pkg.add("MultivariateStats")
 Pkg.add("MLJMultivariateStatsInterface")
-# Pkg.add("ScikitLearn")
 Pkg.add("MLJScikitLearnInterface")
 Pkg.add("GLM")
+# Pkg.add("ScikitLearn")
 # Pkg.add("ObjectDetector")   # yolo
 
 # math
@@ -70,6 +69,7 @@ Pkg.add("JLD")
 # tools
 Pkg.add("PyCall")
 Pkg.add("BenchmarkTools")
+Pkg.add("PkgTemplates")
 
 # cuda
 Pkg.add("CUDA")
