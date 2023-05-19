@@ -64,7 +64,7 @@ Pkg.add("FileIO")
 Pkg.add("ImageIO")
 Pkg.add("ArgParse")
 Pkg.add("BSON")
-Pkg.add("JLD")
+Pkg.add("JLD2")
 
 # tools
 Pkg.add("PyCall")
