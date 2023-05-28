@@ -70,6 +70,7 @@ Pkg.add("JLD2")
 Pkg.add("PyCall")
 Pkg.add("BenchmarkTools")
 Pkg.add("PkgTemplates")
+Pkg.add("PackageCompiler")
 
 # cuda
 Pkg.add("CUDA")
