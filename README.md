@@ -1,2 +1,2 @@
 # julia
- Julia test and example codes
+ Julia scratch space
